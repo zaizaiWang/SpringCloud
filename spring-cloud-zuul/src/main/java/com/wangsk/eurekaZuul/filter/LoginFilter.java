@@ -3,9 +3,12 @@ package com.wangsk.eurekaZuul.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+@Component
 public class LoginFilter extends ZuulFilter {
 
     /**
@@ -46,7 +49,15 @@ public class LoginFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();//获取当前请求servlet
         String token = request.getParameter("token");
         if(token==null||"".equals(token)){
-
+            requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(401);
+            try{
+                HttpServletResponse httpServletResponse = requestContext.getResponse();
+                httpServletResponse.setContentType("text/html;charset=UTF-8");
+                requestContext.getResponse().getWriter().write("请您登陆");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
         return null;
     }
