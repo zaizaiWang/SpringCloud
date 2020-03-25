@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: spring-cloud-client-feign
+feign:
+  hystrix:
+    enabled: true
 eureka:
   instance:
     hostname: localhost
