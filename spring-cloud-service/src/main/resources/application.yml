@@ -1,8 +1,14 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
     name: spring-cloud-service
+  cloud:
+    config:
+      uri: http://${eureka.instance.hostname}:8888  #配置中心服务地址
+      name: testConfig #要抽取配置文件名(无后缀)
+      label: master
+      profile: prd #指定要激活那个环境的配置文件
 eureka:
   instance:
     hostname: localhost

@@ -13,13 +13,13 @@ public class HelloController {
 
     private final static Logger log = LoggerFactory.getLogger(HelloController.class);
 
-    @Value("${server.port}")
+    @Value("${file.huanjing}")
     String port;
 
     @RequestMapping(value="/hiGet",method = RequestMethod.GET)
     public  String getHi(@RequestParam String reqStr){
         log.info("您的入参是{}",reqStr);
-        String rspStr = "您输入的是"+reqStr+",您请求服务的端口号是"+port;
+        String rspStr = "您输入的是"+reqStr+",您目前的环境是"+port;
         return rspStr;
     }
 }

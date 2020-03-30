@@ -1,0 +1,20 @@
+server:
+  port: 8888  #默认端口
+spring:
+  application:
+    name: spring-cloud-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/zaizaiWang/SpringCloud.git #仓库地址
+          search-paths: config-flie #路径名
+          username: 958662166@qq.com
+          password: Wsk95866.
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8081/eureka/
