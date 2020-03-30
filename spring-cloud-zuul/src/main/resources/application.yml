@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: spring-cloud-zuul
+  zipKin:
+    base-url: http://localhost:9411
 eureka:
   instance:
     hostname: localhost

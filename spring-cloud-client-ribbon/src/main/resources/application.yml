@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: spring-cloud-client-ribbon
+  zipKin:
+    base-url: http://${eureka.instance.hostname}:9411
 eureka:
   instance:
     hostname: localhost
