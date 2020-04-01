@@ -12,6 +12,10 @@ spring:
           search-paths: config-flie #路径名
           username: 958662166@qq.com
           password: Wsk95866.
+  boot:
+    admin:
+      client:
+        url: http://${eureka.instance.hostname}:8087  #服务监控地址
   zipKin:
     base-url: http://localhost:9411
 eureka:

@@ -5,6 +5,10 @@ spring:
     name: spring-cloud-client-feign
   zipKin:
     base-url: http://localhost:9411
+  boot:
+    admin:
+      client:
+        url: http://${eureka.instance.hostname}:8087
 feign:
   hystrix:
     enabled: true

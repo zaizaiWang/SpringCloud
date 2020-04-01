@@ -1,17 +1,18 @@
 server:
-  port: 8085
+  port: 8087
 spring:
   application:
-    name: spring-cloud-client-feign
+    name: spring-cloud-admin
   zipKin:
     base-url: http://localhost:9411
-  boot:
-    admin:
-      client:
-        url: http://${eureka.instance.hostname}:8087
-feign:
-  hystrix:
-    enabled: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info"]
 eureka:
   instance:
     hostname: localhost

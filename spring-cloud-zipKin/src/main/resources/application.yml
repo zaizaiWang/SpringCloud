@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: spring-cloud-zipKin
+  boot:
+    admin:
+      client:
+        url: http://${eureka.instance.hostname}:8087  #服务监控地址
 eureka:
   instance:
     hostname: localhost
