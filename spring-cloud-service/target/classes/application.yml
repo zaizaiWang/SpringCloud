@@ -9,11 +9,27 @@ spring:
       name: testConfig #要抽取配置文件名(无后缀)
       label: master
       profile: prd #指定要激活那个环境的配置文件
+  boot:
+    admin:
+      client:
+        url: http://${eureka.instance.hostname}:8087  #服务监控地址
+  rabbitmq:                   #rabbitMq配置
+    host:
+    port: 5672
+    username:
+    password:
   zipKin:
-    base-url: http://localhost:9411
+    base-url: http://${eureka.instance.hostname}:9411
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8081/eureka/
+
+mq:       ##rabbitMq的一些配置
+  config:
+    exchange: log.direct    #配置交换器的方式   1 发布订阅（direct） 2 广播   3 ..
+    queue:
+      info: log.info        #给队列起个名
+      routeKey: log.info.routeKey   #配置路由键，根据路由键，交换器知道把消息分给哪个queue

@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: spring-cloud-client-ribbon
+  boot:
+    admin:
+      client:
+        url: http://${eureka.instance.hostname}:8087  #服务监控地址
+  zipKin:
+    base-url: http://${eureka.instance.hostname}:9411
 eureka:
   instance:
     hostname: localhost
