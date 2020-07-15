@@ -1,5 +1,8 @@
 package com.wangsk.eurekaService.service.CglibProxy;
 
+/**
+ * CGlib动态代理 目标类
+ */
 public class Chinaese {
 
     public String work(){

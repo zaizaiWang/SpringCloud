@@ -3,6 +3,9 @@ package com.wangsk.eurekaService.service.JdkProxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
+/**
+ * JDK动态代理增强调用类
+ */
 public class PeopleProxy implements InvocationHandler {
 
     private People people;

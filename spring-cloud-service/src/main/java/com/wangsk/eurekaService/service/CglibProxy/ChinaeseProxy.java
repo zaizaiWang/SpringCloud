@@ -7,14 +7,11 @@ import org.springframework.cglib.proxy.MethodProxy;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
-
+/**
+ * CGlib动态代理 增强类
+ */
 public class ChinaeseProxy implements MethodInterceptor {
 
-    private  Chinaese chinaese;
-
-    public ChinaeseProxy(Chinaese obj){
-        chinaese = obj;
-    }
 
     public Chinaese getChinasesProxy(){
         Enhancer enhancer = new Enhancer();
@@ -26,10 +23,8 @@ public class ChinaeseProxy implements MethodInterceptor {
     @Override
     public String intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("中国人工作前，指定工作计划");
-        method.invoke(chinaese,objects);
+        methodProxy.invokeSuper(o,objects);
         System.out.println("中国人工作后，检查工作成果");
         return  null;
     }
-
-
 }
